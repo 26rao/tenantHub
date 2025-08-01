@@ -1,0 +1,393 @@
+body, html {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #f1f5f9;
+  color: #1a202c;
+  transition: background 0.3s, color 0.3s;
+}
+.dark, .dark body, .dark html {
+  background: #23272f !important;
+  color: #e5e7eb !important;
+}
+
+/* Apply dark mode to the whole HTML */
+html.dark {
+  background-color: #0d1117 !important; /* Midnight dark */
+  color: #c9d1d9 !important; /* Muted light gray */
+}
+
+/* General element backgrounds and text */
+html.dark body,
+html.dark .card,
+html.dark .form-card,
+html.dark .modal-card,
+html.dark .dashboard-card,
+html.dark .navbar,
+html.dark .form-input,
+html.dark .form-textarea,
+html.dark .form-select {
+  background-color: #161b22 !important; /* Slightly lighter than html bg */
+  color: #c9d1d9 !important;
+  border-color: #30363d !important;
+}
+
+/* Dashboard and Navbar with subtle gradient */
+html.dark .dashboard-card,
+html.dark .navbar {
+  background: linear-gradient(135deg, #161b22 0%, #0d1117 100%) !important;
+  border: 1px solid #30363d !important;
+}
+
+/* Active and focus states */
+html.dark .navbar-link.active,
+html.dark .navbar-link:focus {
+  background: #238636 !important; /* Deep green */
+  color: #ffffff !important;
+}
+
+/* Form element focus */
+html.dark .form-input:focus,
+html.dark .form-textarea:focus,
+html.dark .form-select:focus {
+  background: #1f2933 !important;
+  border-color: #58a6ff !important;
+}
+
+/* Button styles */
+html.dark .btn {
+  background: linear-gradient(90deg, #238636 0%, #2ea043 100%) !important;
+  color: #ffffff !important;
+}
+
+html.dark .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Badges */
+html.dark .badge.open {
+  background: #2ea043 !important;
+  color: #ffffff !important;
+}
+html.dark .badge.closed {
+  background: #da3633 !important;
+  color: #ffffff !important;
+}
+
+/* Error messages */
+html.dark .error-message {
+  background: #2f1313 !important;
+  color: #f85149 !important;
+  border: 1px solid #f85149 !important;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 16px 48px 16px;
+}
+
+.card, .form-card, .modal-card, .dashboard-card {
+  margin-bottom: 2.5rem;
+}
+.centered-container > * {
+  margin-bottom: 2.5rem;
+}
+.dashboard-fullscreen > div > .form-title,
+.dashboard-fullscreen > div > p {
+  margin-bottom: 2.5rem !important;
+}
+.dashboard-fullscreen > div > div[style*='grid'] {
+  gap: 48px !important;
+}
+
+.card {
+  background: linear-gradient(120deg, #f8fafc 60%, #e0e7ef 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(60, 72, 88, 0.12);
+  padding: 2.5rem 2rem;
+  margin: 0 auto 2.5rem auto;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0 16px 48px 0 rgba(60, 72, 88, 0.18);
+  transform: translateY(-4px) scale(1.025);
+}
+
+.form-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2563eb;
+  letter-spacing: -1px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #334155;
+  letter-spacing: 0.01em;
+}
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 0.75rem;
+  font-size: 1.08rem;
+  background: #f1f5f9;
+  color: #1a202c;
+  transition: border 0.2s, box-shadow 0.2s;
+  font-weight: 500;
+}
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px #60a5fa44;
+  outline: none;
+  background: #fff;
+}
+.form-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem 0;
+  background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px 0 rgba(60, 72, 88, 0.10);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.01em;
+}
+.btn:hover, .btn:focus {
+  background: linear-gradient(90deg, #1e40af 0%, #059669 100%);
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(60, 72, 88, 0.16);
+}
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.link:hover {
+  color: #10b981;
+  text-decoration: underline;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #f8fafc 60%, #e0e7ef 100%);
+  border-bottom: 1.5px solid #e5e7eb;
+  box-shadow: 0 4px 16px 0 rgba(60, 72, 88, 0.06);
+  padding: 0 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  padding: 0 18px;
+}
+.navbar-links {
+  display: flex;
+  gap: 0.75rem;
+}
+.navbar-link {
+  padding: 0.7rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  color: #334155;
+  background: none;
+  border: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.08rem;
+}
+.navbar-link.active, .navbar-link:focus {
+  background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(60, 72, 88, 0.10);
+}
+.navbar-link:hover {
+  background: #e0e7ef;
+  color: #2563eb;
+}
+.navbar-user {
+  font-weight: 700;
+  color: #2563eb;
+  margin-right: 1.2rem;
+  font-size: 1.08rem;
+}
+
+@media (max-width: 700px) {
+  .card, .container {
+    padding: 1rem;
+  }
+  .navbar-inner {
+    flex-direction: column;
+    height: auto;
+    gap: 0.5rem;
+  }
+  .navbar-user {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px 0 rgba(60, 72, 88, 0.10);
+}
+.table th, .table td {
+  padding: 1.1rem;
+  border-bottom: 1.5px solid #e5e7eb;
+  text-align: left;
+}
+.table th {
+  background: #e0e7ef;
+  color: #2563eb;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.table tr:last-child td {
+  border-bottom: none;
+}
+.table tr:hover {
+  background: #f1f5f9;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3em 1em;
+  border-radius: 1.2em;
+  font-size: 1em;
+  font-weight: 700;
+  background: #e0e7ff;
+  color: #2563eb;
+  margin-left: 0.5em;
+  letter-spacing: 0.01em;
+}
+.badge.closed {
+  background: #e5e7eb;
+  color: #64748b;
+}
+.badge.open {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  padding: 1.1rem 2.2rem;
+  border-radius: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  background: #2563eb;
+  box-shadow: 0 4px 16px 0 rgba(60, 72, 88, 0.18);
+  animation: fadeIn 0.3s;
+  font-size: 1.08rem;
+}
+.toast.error {
+  background: #ef4444;
+}
+.toast.success {
+  background: #10b981;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.status {
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 1.2em;
+  padding: 0.3em 1em;
+  display: inline-block;
+  letter-spacing: 0.01em;
+}
+.status.paid {
+  background: #d1fae5;
+  color: #047857;
+}
+.status.unpaid {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e0e7ef;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+.dashboard-card:hover, .dashboard-card:focus {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(60, 72, 88, 0.16);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30, 41, 59, 0.45);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+.modal-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(60, 72, 88, 0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 480px;
+  width: 96vw;
+  min-width: 320px;
+  animation: fadeIn 0.3s;
+  position: relative;
+  text-align: left;
+  word-break: break-word;
+}
+.dark .modal-card {
+  background: rgba(45, 50, 60, 0.99) !important;
+  color: #e5e7eb !important;
+  border-color: #353945 !important;
+  box-shadow: 0 8px 32px 0 rgba(20, 20, 30, 0.22) !important;
+} 
